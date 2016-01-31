@@ -1,0 +1,27 @@
+ANDROID_SDK=/your-path/to-android-sdk
+
+# Mozilla config
+# Build Firefox for Android:
+ac_add_options --enable-application=mobile/android
+ac_add_options --target=arm-linux-androideabi
+ac_add_options --disable-tests
+ac_add_options --disable-stats
+mk_add_options MOZ_MAKE_FLAGS=-j6
+export CCACHE_HARDLINK=1
+ac_add_options --with-ccache=ccache
+
+# With the following Android SDK and NDK:
+ac_add_options --with-android-sdk="/your path to sdk"
+ac_add_options --with-android-ndk="/your path to ndk"
+ac_add_options --with-ccache=/usr/bin/ccache
+ac_add_options --disable-crashreporter
+ac_add_options --disable-telemetry
+ac_add_options --disable-updater
+ac_add_options --disable-maintenance-service
+ac_add_options --disable-googleplay
+ac_add_options --disable-playservices
+ac_add_options --with-branding=mobile/android/branding/unofficial
+
+export MOZ_TELEMETRY_REPORTING=0
+export MOZ_SERVICES_HEALTHREPORT=0
+export MOZ_ANDROID_GCM=0
